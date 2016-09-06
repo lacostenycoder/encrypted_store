@@ -30,8 +30,8 @@ module EncryptedStore
   end
 
   def self.initialize!
-    ActiveSupport::Cache::Store.prepend EncryptedStore::Store
-    ActiveSupport::Cache::Entry.prepend EncryptedStore::Entry
+    ActiveSupport::Cache::Store.send :prepend, EncryptedStore::Store
+    ActiveSupport::Cache::Entry.send :prepend, EncryptedStore::Entry
   end
 
   module Store
